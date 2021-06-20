@@ -12,7 +12,7 @@ i=$feedline
 printf "%30s %20s %20s\n" $p1 $p2 $p3
 while [ $i -gt 1 ]; do printf "-"; i=$(($i-1)); done
 printf "\n"
-for item in $(virsh list | grep running | awk '{print $2}')
+for item in $(virsh list --name)
 do
     virsh dommemstat $item  > /tmp/vm_stat
     act=$(grep actual /tmp/vm_stat | awk '{print $NF}')
