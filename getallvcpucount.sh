@@ -8,7 +8,7 @@ printf "%30s %10s %10s %10s %10s\n" "Name" "Maxcon" "Maxlive" "Curcon" "Curlive"
 i=$feedline
 while [ $i -gt 1 ]; do printf "-"; i=$(($i-1)); done
 printf "\n"
-for item in $(virsh list --name')
+for item in $('virsh list --name')
 do
 
     virsh vcpucount $item  > /tmp/vmcpustat
